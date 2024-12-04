@@ -1,0 +1,5 @@
+CREATE TABLE feriado (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    data DATE NOT NULL,
+    descricao VARCHAR(255) NOT NULL
+);

@@ -1,0 +1,6 @@
+CREATE TABLE agente (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100),
+    email VARCHAR(150) UNIQUE
+);
+

@@ -1,0 +1,1 @@
+ALTER TABLE ticket ADD COLUMN prazo_final DATETIME;

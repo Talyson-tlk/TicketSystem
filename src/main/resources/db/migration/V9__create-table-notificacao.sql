@@ -1,0 +1,10 @@
+CREATE TABLE notificacao (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    mensagem TEXT NOT NULL,
+    visualizada BOOLEAN DEFAULT FALSE,
+    data_envio TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ticket_id BIGINT,
+    cliente_id BIGINT,
+    FOREIGN KEY (ticket_id) REFERENCES ticket(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (cliente_id) REFERENCES cliente(id) ON DELETE CASCADE ON UPDATE CASCADE
+);

@@ -1,0 +1,2 @@
+ALTER TABLE ticket
+ADD COLUMN criticidade VARCHAR(50);

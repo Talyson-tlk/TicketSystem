@@ -1,0 +1,1271 @@
+{
+	"info": {
+		"_postman_id": "073258d3-68f7-4625-a2fa-c0b11a78c929",
+		"name": "API Chamadas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37952092"
+	},
+	"item": [
+		{
+			"name": "Requisições",
+			"item": [
+				{
+					"name": "Tickets",
+					"item": [
+						{
+							"name": "Cria um novo ticket",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"titulo\": \"Erro no sistema\",\n  \"descricao\": \"Erro grave ao acessar módulo X\",\n  \"impacto\": \"MUITO_ALTO\",\n  \"criticidade\": \"MUITO_CRITICO\",\n  \"clienteId\": 1,\n  \"filaId\": 1,\n  \"agenteId\": 1\n}\n\n\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/tickets",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"tickets"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Lista todos os tickets",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/tickets",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"tickets"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Busca um ticket específico por ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/tickets/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"tickets",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Atualiza um ticket específico",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"titulo\": \"Erro no sistema - atualizado\",\n  \"descricao\": \"Atualização da descrição\",\n  \"status\": \"ABERTO\",\n  \"prioridade\": \"ALTA\",\n  \"impacto\": \"MUITO_ALTO\",\n  \"criticidade\": \"CRITICO\"\n}\n\n\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/tickets/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"tickets",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Fechar ticket",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"status\": \"FECHADO_COM_SUCESSO\",\n    \"motivo\": \"Problema resolvido\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/tickets/2/fechar",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"tickets",
+										"2",
+										"fechar"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reabrir ticket",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"motivo\": \"Problema não resolvido\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/tickets/2/reabrir",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"tickets",
+										"2",
+										"reabrir"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Exclui um ticket específico",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/tickets/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"tickets",
+										"5"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Pesquisar Tickets",
+					"item": [
+						{
+							"name": "Pesquisar por Prioridade e Status",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"prioridade\": \"ALTA\",\n    \"status\": \"NOVO\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/tickets/pesquisar",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"tickets",
+										"pesquisar"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Pesquisar por Status e Cliente",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"status\": \"NOVO\",\n    \"clienteId\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/tickets/pesquisar",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"tickets",
+										"pesquisar"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Pesquisar por Prioridade e Data de Criação",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"prioridade\": \"ALTA\",\n    \"dataCriacaoInicio\": \"2024-10-01T00:00:00\",\n    \"dataCriacaoFim\": \"2024-12-20T23:59:59\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/tickets/pesquisar",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"tickets",
+										"pesquisar"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Com essa funcionalidade, o sistema agora permite filtrar tickets com base em diversos critérios, facilitando a localização e o gerenciamento dos chamados."
+				},
+				{
+					"name": "Relatório de Desempenho e Monitoramento de SLA",
+					"item": [
+						{
+							"name": "Relatorio de desempenho geral",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"dataInicio\": \"2024-10-01T00:00:00\",\n    \"dataFim\": \"2024-12-20T23:59:59\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/relatorios/desempenho",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"relatorios",
+										"desempenho"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Relatorio de desempenho específico",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"dataInicio\": \"2024-10-01T00:00:00\",\n    \"dataFim\": \"2024-12-20T23:59:59\",\n    \"agenteId\": 1,\n    \"filaId\": 1\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/relatorios/desempenho",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"relatorios",
+										"desempenho"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Implementar uma funcionalidade que permita gerar relatórios de desempenho, com métricas sobre o tempo de resolução de tickets, atendimento aos SLAs, e desempenho de agentes e filas. Esses relatórios ajudarão a acompanhar a qualidade do atendimento e a otimizar processos."
+				},
+				{
+					"name": "Clientes",
+					"item": [
+						{
+							"name": "Cria um novo cliente",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\": \"Talyson\",\n    \"email\": \"talyson.gomes@aluno.ce.gov.br\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/clientes",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"clientes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Lista todos os clientes",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\": \"Talyson Wesley\",\n    \"email\": \"talyson.wesley@exemplo.com\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/clientes",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"clientes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Busca um cliente específico por ID",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\": \"Talyson Wesley\",\n    \"email\": \"talyson.wesley@exemplo.com\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/clientes/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"clientes",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Atualiza um cliente específico",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\": \"Talyson Wesley\",\n    \"email\": \"talyson.wesley@exemplo.com\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/clientes/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"clientes",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Exclui um cliente específico",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\": \"Talyson Wesley\",\n    \"email\": \"talyson.wesley@exemplo.com\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/clientes/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"clientes",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Agentes",
+					"item": [
+						{
+							"name": "Cria um novo agente",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nome\": \"Desenvolvedor\",\n  \"email\": \"develop.opmalx@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/agentes",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"agentes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Lista todos os agente",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\": \"Talyson Wesley\",\n    \"email\": \"talyson.wesley@exemplo.com\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/agentes",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"agentes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Busca um agente específico por ID",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\": \"Talyson Wesley\",\n    \"email\": \"talyson.wesley@exemplo.com\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/agentes/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"agentes",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Atualiza um agente específico",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\": \"Talyson Wesley\",\n    \"email\": \"talyson.wesley@exemplo.com\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/agentes/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"agentes",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Exclui um agente específico",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\": \"Talyson Wesley\",\n    \"email\": \"talyson.wesley@exemplo.com\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/agentes/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"agentes",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Notas",
+					"item": [
+						{
+							"name": "Cria uma nova nota",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"tipoNota\": \"INTERNA\",\n    \"conteudo\": \"Esta é uma nota de exemplo para o ticket.\",\n    \"ticketId\": 1\n}\n\n\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/notas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"notas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Lista notas por tickets",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/notas/ticket/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"notas",
+										"ticket",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Busca uma nota específico por ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/notas/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"notas",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Atualiza uma nota específica",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"tipoNota\": \"EXTERNA\",\n    \"conteudo\": \"Esta é uma nota de exemplo para o ticket.\",\n    \"ticketId\": 1\n}\n\n\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/notas/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"notas",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Excluir uma nota específica",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/notas/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"notas",
+										"4"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Filas",
+					"item": [
+						{
+							"name": "Cria uma nova fila",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nome\": \"Suporte Técnico\",\n  \"descricao\": \"Fila para atendimento de problemas técnicos\"\n}\n\n\n\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/filas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"filas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar filas",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/filas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"filas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Busca uma fila específica por ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/filas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"filas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Atualiza uma fila específica",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nome\": \"Suporte Técnico\",\n  \"descricao\": \"Fila para atendimento de problemas técnicos\"\n}\n\n\n\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/filas/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"filas",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Excluir uma fila específica",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/filas/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"filas",
+										"4"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "SLA",
+					"item": [
+						{
+							"name": "Criar SLA",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"filaId\": 1,\n    \"tempoResposta\": \"PT1H\",\n    \"tempoResolucao\": \"PT24H\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/slas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"slas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar SLAs",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/slas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"slas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar SLA por ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/slas/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"slas",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar SLA por ID da fila",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/slas/fila/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"slas",
+										"fila",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Atualizar SLA",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"filaId\": 1,\n    \"tempoResposta\": \"PT1M\",\n    \"tempoResolucao\": \"PT1M\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/slas/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"slas",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Painel de Controle em Tempo Real",
+					"item": [
+						{
+							"name": "Obter dados do painel",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/painel/dados",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"painel",
+										"dados"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Implementar um painel que forneça uma visão geral em tempo real sobre o estado do sistema, incluindo métricas de tickets, SLAs e notificações. Esse recurso ajudará os agentes e administradores a acompanhar o fluxo de trabalho e priorizar atendimentos.\n\nCom essa funcionalidade, o sistema agora possui um painel de controle em tempo real que facilita o monitoramento das principais métricas de atendimento. Esse painel dá aos agentes uma visão geral sobre o fluxo de trabalho, ajudando a priorizar atendimentos e melhorar o gerenciamento de SLAs."
+				},
+				{
+					"name": "Tendências de Chamados",
+					"item": [
+						{
+							"name": "Obter Dados de Tendências",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/dashboard/tendencias",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"dashboard",
+										"tendencias"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Implementar um dashboard que apresente gráficos e métricas sobre o volume de tickets abertos, fechados e em andamento ao longo do tempo. Isso ajuda a monitorar o fluxo de chamados, identificar períodos de maior carga e entender tendências sazonais ou recorrentes.\n\nCom essa implementação, o sistema agora oferece um dashboard de análise de tendências que permite acompanhar o fluxo de tickets ao longo do tempo. Esse recurso ajuda a detectar picos, entender sazonalidades, e otimizar a alocação de recursos com base em dados."
+				},
+				{
+					"name": "Feriados e Horários de Atendimento",
+					"item": [
+						{
+							"name": "Adicionar um Feriado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": \"2024-12-25\",\n    \"descricao\": \"Natal\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/feriados",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"feriados"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar Feriados",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/feriados",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"feriados"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Adicionar Horários de Atendimento",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"diaSemana\": \"SEXTA\",\n    \"horaInicio\": \"13:00\",\n    \"horaFim\": \"17:00\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/horarios",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"horarios"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar Horários de Atendimento",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/horarios",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"horarios"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Permitir configurar feriados e horários de atendimento para que o cálculo de SLAs seja mais preciso. Essa funcionalidade garante que prazos sejam ajustados corretamente para dias úteis e horários de trabalho.\n\nCom essa funcionalidade, o sistema agora leva em consideração feriados e horários de atendimento ao calcular SLAs. Isso assegura que os prazos reflitam os dias e horários de trabalho reais, oferecendo maior precisão no cumprimento de acordos."
+				},
+				{
+					"name": "Notificações",
+					"item": [
+						{
+							"name": "Listar notificações não visualizadas do cliente",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/notificacoes/nao-visualizadas/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"notificacoes",
+										"nao-visualizadas",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Marcar como visualizada",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/notificacoes/visualizar/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"notificacoes",
+										"visualizar",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Listagem das notificações enviadas para cada cliente com base no ID"
+				}
+			]
+		}
+	]
+}
